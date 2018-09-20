@@ -1,13 +1,13 @@
 function onReady() {
-  const addToDoForm = document.getElementsById('addToDoForm');
+  const addToDoForm = document.getElementById('addToDoForm');
   const newToDoText = document.getElementById('newToDoText');
   const toDoList = document.getElementById('toDoList');
 
   addToDoForm.addEventListener();
-  addToDoForm.addEventListener('submit',() => {
+  addToDoForm.addEventListener('submit', event => {
     event.preventDefault();
 
-    //get the new
+    //get the text
     let title = newToDoText.value;
 
     //create a new li
@@ -28,8 +28,23 @@ function onReady() {
     //attach the li to the ul
     toDoList.appendChild(newLi);
 
+    // create a delete button
+    let deleteButton = document.createElement("button");
+
+    // set the button name
+    deleteButton.innerHTML = "delete";
+
+    // attach the deleteButton to the li
+    newLi.appendChild(deleteButton);
+
+    deleteButton.addEventListener('click', event => {
+      event.preventDefault();
+      
+    })
+
     //empty the input
     newToDoText.value = '';
+
   });
 }
 
