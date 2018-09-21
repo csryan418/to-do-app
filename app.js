@@ -4,7 +4,7 @@ function onReady() {
   const toDoList = document.getElementById('toDoList');
 
   addToDoForm.addEventListener();
-  addToDoForm.addEventListener('submit', event => {
+  addToDoForm.addEventListener('submit', () => {
     event.preventDefault();
 
     //get the text
@@ -37,10 +37,10 @@ function onReady() {
     // attach the deleteButton to the li
     newLi.appendChild(deleteButton);
 
-    deleteButton.addEventListener('click', event => {
-      event.preventDefault();
-      
-    })
+    deleteButton.addEventListener('click', function() {
+    newLi.parentNode.removeChild(newLi);
+
+  })
 
     //empty the input
     newToDoText.value = '';
